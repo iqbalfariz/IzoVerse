@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.izoverse"
-    compileSdk = 33
+    compileSdkPreview = "UpsideDownCakePrivacySandbox"
 
     defaultConfig {
         applicationId = "com.example.izoverse"
@@ -34,6 +34,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
