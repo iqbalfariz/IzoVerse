@@ -7,24 +7,13 @@
     tools:context=".ui.home.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tvTitle"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSeries"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
-
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="next"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_list_tv_series" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

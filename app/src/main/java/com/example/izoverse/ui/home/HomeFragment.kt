@@ -8,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.izoverse.R
+import com.example.izoverse.common.Constants
 import com.example.izoverse.databinding.FragmentHomeBinding
+import com.example.izoverse.ui.TvSeriesAdapter
 import com.example.izoverse.ui.detail.DetailActivity
 import com.google.android.material.navigation.NavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,11 +32,25 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.btnNext.setOnClickListener {
-            val intent = Intent(activity, DetailActivity::class.java)
-            startActivity(intent)
+        if (activity != null){
+            viewModel.getTvListTvSeries(Constants.REGION_SERIES, 1)
+            val tvSeriesAdapter = TvSeriesAdapter()
+            tvSeriesAdapter.onItemClick = { selectedData ->
+                val intent = Intent(activity, DetailActivity::class.java)
+                startActivity(intent)
+            }
+            viewModel.resultTvSeries.observe(viewLifecycleOwner) {response ->
+                if (response != null){
+                    tvSeriesAdapter.setData(response.results)
+                }
+            }
+            with(binding.rvSeries) {
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                adapter = tvSeriesAdapter
+            }
         }
+
     }
 
 }

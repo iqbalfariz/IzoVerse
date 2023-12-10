@@ -43,7 +43,7 @@ val repositoryModule = module {
 
 val viewModelModule = module {
     single { MainViewModel(get()) }
-    single { HomeViewModel() }
+    single { HomeViewModel(get()) }
     single { DetailViewModel() }
     single { FavoriteViewModel() }
 }
