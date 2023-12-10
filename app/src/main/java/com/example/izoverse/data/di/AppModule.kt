@@ -1,17 +1,13 @@
 package com.example.izoverse.data.di
 
 import com.example.izoverse.common.Constants
-import com.example.izoverse.common.Resource
 import com.example.izoverse.data.remote.api.ApiService
 import com.example.izoverse.data.repository.TvSeriesRepository
 import com.example.izoverse.data.repository.TvSeriesRepositoryImpl
 import com.example.izoverse.domain.use_case.GetPopularSeriesUseCase
-import com.example.izoverse.ui.MainViewModel
 import com.example.izoverse.ui.detail.DetailViewModel
 import com.example.izoverse.ui.favorite.FavoriteViewModel
 import com.example.izoverse.ui.home.HomeViewModel
-import com.google.gson.GsonBuilder
-import com.google.gson.InstanceCreator
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -42,7 +38,6 @@ val repositoryModule = module {
 }
 
 val viewModelModule = module {
-    single { MainViewModel(get()) }
     single { HomeViewModel(get()) }
     single { DetailViewModel() }
     single { FavoriteViewModel() }

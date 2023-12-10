@@ -1,7 +1,10 @@
 package com.example.izoverse.data.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class TvSeriesResponse(
     @SerializedName("backdrop_path")
     val backdropPath: String,
@@ -41,4 +44,4 @@ data class TvSeriesResponse(
 
     @SerializedName("vote_count")
     val voteCount: Int
-)
+): Parcelable

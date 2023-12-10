@@ -37,6 +37,7 @@ class HomeFragment : Fragment() {
             val tvSeriesAdapter = TvSeriesAdapter()
             tvSeriesAdapter.onItemClick = { selectedData ->
                 val intent = Intent(activity, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
             viewModel.resultTvSeries.observe(viewLifecycleOwner) {response ->
