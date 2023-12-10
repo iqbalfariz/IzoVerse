@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -84,4 +85,9 @@ dependencies {
     implementation ("io.insert-koin:koin-android:3.5.0")
     implementation ("io.insert-koin:koin-androidx-navigation:3.5.0")
     implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+
+    // fragment and navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-compose:2.5.3")
 }
